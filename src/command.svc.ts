@@ -1,4 +1,4 @@
-namespace ng.command {
+namespace ngCommand {
 
 	export interface ICommand {
 
@@ -61,7 +61,7 @@ namespace ng.command {
 		($scope: angular.IScope, execute: () => angular.IPromise<any>, canExecute?: () => boolean): ICommand;
 	}
 
-	angular.module(ng.command.ModuleName)
+	angular.module(ngCommand.ModuleName)
 		.factory("ngCommand", () => {
 
 			return ($scope: angular.IScope, execute: () => angular.IPromise<any>, canExecute?: () => boolean): ICommand => {

@@ -1,10 +1,15 @@
 {
 	"compilerOptions": {
 		"module": "amd",
-		"noImplicitAny": true,
-		"removeComments": true,
-		"preserveConstEnums": true,
-		"out": "../../built/local/tsc.js",
-		"sourceMap": true
-	}
+		"declaration": false,
+		"noImplicitAny": false,
+		"removeComments": false,
+		"noLib": true,
+		"emitDecoratorMetadata": true
+	},
+		"filesGlob": [
+		"./**/*.ts",
+		"./tools/typings/**/*.d.ts",
+		"!./node_modules/**/*.ts"
+	]
 }

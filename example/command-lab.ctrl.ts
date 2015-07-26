@@ -14,7 +14,7 @@ module App {
 			private $scope: angular.IScope,
 			private loggerFactory: ILoggerFactory,
 			private $timeout: angular.ITimeoutService,
-			private commandFactory: ICommandFactory
+			private commandFactory: ng.command.ICommandFactory
 			) {
 
 			this._logger = loggerFactory(CommandLabController.id);
@@ -52,10 +52,10 @@ module App {
 		canExecute: () => boolean;
 		execute: () => angular.IPromise<any>;
 		isEnabled = true;
-		
-		destroyCmd: ICommand;
-		destroyCmd2: ICommand;
-		
+
+		destroyCmd: ng.command.ICommand;
+		destroyCmd2: ng.command.ICommand;
+
 
 		private handleExecute() {
 
@@ -78,13 +78,12 @@ module App {
 		saveCmd() {
 			this.handleExecute();
 		}
-		
+
 
 		save() {
 			this._logger.info("save", "init!");
 			return this.$timeout(() => {
 				this._logger.info("save", "yay!", { alias: this.alias });
-				this.userInfo.alias = this.alias;
 			}, 2000);
 
 		}
@@ -93,7 +92,7 @@ module App {
 
 	}
 
-	angular.module(Module)
+	angular.module("command-lab")
 		.controller(CommandLabController.id, CommandLabController);
 
 }
