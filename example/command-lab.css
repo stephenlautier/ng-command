@@ -1,0 +1,136 @@
+* {
+			margin: 0;
+			padding: 0;
+			outline: 0;
+			box-sizing: border-box;
+		}
+
+		::selection {
+			background-color: #B6C92F;
+			color: #fff;
+		}
+
+		::-moz-selection {
+			background-color:#B6C92F;
+			color: #fff;
+		}
+
+		::selection {
+			background-color: #B6C92F;
+			color: #fff;
+		}
+
+		::-moz-selection {
+			background-color: #B6C92F;
+			color: #fff;
+		}
+
+		.clearfix {
+			display: block;
+		}
+
+		.clearfix:after {
+			content: '.';
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+
+		body {
+			background: #B8FF80;
+			color: #3C3C3C;
+			font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+			overflow-x: hidden;
+		}
+
+		h1 {			
+			font-size: 3em;
+			font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+			font-weight: 700;
+			text-align: center;
+			padding-top: 120px;
+		}
+		
+		fieldset{
+			padding: 0.5em 0.5em;
+			border-color: #3C3C3C;
+		}
+		
+		fieldset legend{
+			font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+			font-size: 2em;
+			margin: 0 0.5em;
+		}
+		
+		fieldset legend i{
+			margin-right: 0.5em;
+		}
+		
+		fieldset label{
+			font-weight:bold;
+			padding: 0.5em;
+		}
+
+		.info {
+			margin-top: 10px;
+			text-align: center;
+		}
+
+		.info a {
+			border-bottom: 2px solid;
+			text-decoration: none;
+		}
+		
+		.info p{
+			margin-top: 1em;
+		}
+
+		.main {
+			max-width: 600px;
+			margin: 30px auto;
+		}
+
+		.btn {
+			display: inline-block;
+			
+			font-size: 14px;
+			font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+			padding: 0.3em 1em;			
+			border: 2px solid #3C3C3C;
+			text-align: center;
+			line-height: 46px;
+			text-decoration: none;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			margin: 0 10px;
+			cursor: pointer;
+			background:transparent;
+		}
+		
+		.btn:disabled{			
+			cursor: not-allowed;
+			border-color: #C9C9C9;
+			opacity: 0.6;
+		}
+
+		.controls {
+			clear: both;
+			text-align: center;
+		}
+
+		
+		.ai-dark-spin {
+  border-color: rgba(255,255,255,.2) rgba(255,255,255, .2) #000 #000;
+}
+
+ .ai-indicator.small{
+	 width:24px;
+	 height:24px;
+ }
+ 
+ 
+ i{
+	 display: inline-block;
+	 text-rendering: auto;	 	 
+ }

@@ -11,6 +11,7 @@
 		"filesGlob": [
 		"./**/*.ts",
 		"./tools/typings/**/*.d.ts",
-		"!./node_modules/**/*.ts"
+		"!./node_modules/**/*.ts",
+		"!./build/**/*.d.ts"
 	]
 }

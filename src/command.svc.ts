@@ -44,6 +44,7 @@ namespace ngCommand {
 				};
 			}, (newValue, oldValue) => {
 				//this.logger.info("$watch.canExecute", "Handle change!", newValue);
+				//console.info(`[cmd] $watch.canExecute - handle change!`,{ newValue: newValue, oldValue: oldValue});
 				this.canExecute = !newValue.isExecuting && !!newValue.canExecute;
 			}, true);
 		}

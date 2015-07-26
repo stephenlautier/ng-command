@@ -19,6 +19,7 @@ var ngCommand;
                 };
             }, function (newValue, oldValue) {
                 //this.logger.info("$watch.canExecute", "Handle change!", newValue);
+                //console.info(`[cmd] $watch.canExecute - handle change!`,{ newValue: newValue, oldValue: oldValue});
                 _this.canExecute = !newValue.isExecuting && !!newValue.canExecute;
             }, true);
         }

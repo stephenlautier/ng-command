@@ -12,6 +12,10 @@ var gulpif = require('gulp-if');
 var rename = require('gulp-rename');
 var runseq = require("run-sequence");
 
+// example only
+var browserSync = require("browser-sync");
+
+
 var isRelease = args.rel || false;
 console.log(">>>>> Is Release: " + isRelease);
 
@@ -23,7 +27,8 @@ var paths = {
 	},
 	distFileName: "ng-command.js",
 	distTypeScriptDefName: "ng-command.d.ts",
-	dist: "./build"
+	dist: "./build",
+	exampleRoot: "./example"
 };
 
 gulp.task("default", ["compile:typescript"], function () {
@@ -83,3 +88,24 @@ gulp.task("clean", function (cb) {
 function reportChange(event) {
 	console.log("File " + event.path + " was " + event.type + ", running tasks...");
 }
+
+
+// ** Example ** //
+
+gulp.task("serve-example", ["build:rel"], function (done) {
+
+	browserSync({
+		open: true,
+		port: 9000,
+		server: {
+			baseDir: ["."],
+			index: "example/command-lab.html",
+			middleware: function (req, res, next) {
+				res.setHeader("Access-Control-Allow-Origin", "*");
+				next();
+			}
+		},
+		 files: ["example/*.*", "build/*.*"]
+	}, done);
+
+});
