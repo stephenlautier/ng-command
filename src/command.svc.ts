@@ -18,8 +18,7 @@ namespace ngCommand {
 		execute: () => angular.IPromise<any>;
 	}
 
-	export class Command implements ICommand {
-		static id = "_commandInstance"
+	 class Command implements ICommand {
 
 		private canExecuteFn: () => boolean;
 		private executeFn: () => angular.IPromise<any>;
@@ -72,7 +71,7 @@ namespace ngCommand {
 	/**
 	 * Command factory which creates instances of @see ICommand.
 	 */
-	export interface ICommandFactory {
+	export interface ICommandService {
 		/**
 		 * Factory instance creator method.
 		 * @param $scope Scope which will keep track of the command.
@@ -83,7 +82,7 @@ namespace ngCommand {
 	}
 
 	angular.module(ngCommand.ModuleName)
-		.factory("ngCommand", () => {
+		.factory("$command", () => {
 
 			return ($scope: angular.IScope, execute: () => angular.IPromise<any>, canExecute?: () => boolean): ICommand => {
 				return new Command($scope, execute, canExecute);

@@ -12,6 +12,8 @@
 		"./**/*.ts",
 		"./tools/typings/**/*.d.ts",
 		"!./node_modules/**/*.ts",
-		"!./build/**/*.d.ts"
+		"!./dist/**/*.d.ts",
+		"!./api/*.d.ts"
+		
 	]
 }

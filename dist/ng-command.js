@@ -39,12 +39,10 @@ var ngCommand;
                 _this.isExecuting = false;
             });
         };
-        Command.id = "_commandInstance";
         return Command;
     })();
-    ngCommand.Command = Command;
     angular.module(ngCommand.ModuleName)
-        .factory("ngCommand", function () {
+        .factory("$command", function () {
         return function ($scope, execute, canExecute) {
             return new Command($scope, execute, canExecute);
         };

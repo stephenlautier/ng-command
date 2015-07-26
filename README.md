@@ -15,12 +15,12 @@
 ## Example
 ```javascript
 var app = angular.module('commandLab', ['ng-command'])
-		.controller('CommandExampleCtrl', ['ngCommand', '$scope', '$timeout',
-			function (ngCommand, $scope, $timeout) {
+		.controller('CommandExampleCtrl', ['$command', '$scope', '$timeout',
+			function ($command, $scope, $timeout) {
 					
 			var self = this;
 					
-			self.saveCmd = ngCommand($scope, save, canExecute);
+			self.saveCmd = $command($scope, save, canExecute);
  
 			function save (){
 				return $timeout( function() {

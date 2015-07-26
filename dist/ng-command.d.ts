@@ -20,19 +20,10 @@ declare module ngCommand {
          */
         execute: () => angular.IPromise<any>;
     }
-    class Command implements ICommand {
-        static id: string;
-        private canExecuteFn;
-        private executeFn;
-        isExecuting: boolean;
-        canExecute: boolean;
-        constructor($scope: angular.IScope, execute: () => angular.IPromise<any>, canExecute?: () => boolean);
-        execute(): angular.IPromise<any>;
-    }
     /**
      * Command factory which creates instances of @see ICommand.
      */
-    interface ICommandFactory {
+    interface ICommandService {
         /**
          * Factory instance creator method.
          * @param $scope Scope which will keep track of the command.
