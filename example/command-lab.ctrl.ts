@@ -14,15 +14,15 @@ module App {
 			private $scope: angular.IScope,
 			private loggerFactory: ILoggerFactory,
 			private $timeout: angular.ITimeoutService,
-			private commandFactory: ng.command.ICommandFactory
+			private ngCommand: ngCommand.ICommandFactory
 			) {
 
 			this._logger = loggerFactory(CommandLabController.id);
 			this._logger.info("ctor", "init");
 			
 			// destroy
-			this.destroyCmd = commandFactory($scope, () => this.save(), () => !this.isBusy);
-			this.destroyCmd2 = commandFactory($scope, () => this.save(), () => !this.isBusy);
+			this.destroyCmd = ngCommand($scope, () => this.save(), () => !this.isBusy);
+			this.destroyCmd2 = ngCommand($scope, () => this.save(), () => !this.isBusy);
 
 			// command specific
 			this.execute = this.save;
@@ -53,8 +53,8 @@ module App {
 		execute: () => angular.IPromise<any>;
 		isEnabled = true;
 
-		destroyCmd: ng.command.ICommand;
-		destroyCmd2: ng.command.ICommand;
+		destroyCmd: ngCommand.ICommand;
+		destroyCmd2: ngCommand.ICommand;
 
 
 		private handleExecute() {

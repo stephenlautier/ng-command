@@ -1,17 +1,21 @@
 var gulp = require("gulp");
 var tsc = require("gulp-typescript");
-//var sass = require("gulp-sass");
 var sourcemaps = require("gulp-sourcemaps");
-//var browserSync = require("browser-sync");
-var runseq = require("run-sequence");
 var concat = require("gulp-concat");
-//var wiredep = require("wiredep").stream;
 var ngAnnotate = require("gulp-ng-annotate");
-//var usemin = require("gulp-usemin");
 var uglify = require("gulp-uglify");
-//var minifyCss = require("gulp-minify-css");
+
 var del = require("del");
 var merge = require("merge2");
+var args = require('yargs').argv;
+var gulpif = require('gulp-if');
+var rename = require('gulp-rename');
+var runseq = require("run-sequence");
+
+var isRelease = args.rel || false;
+console.log(">>>>> Is Release: " + isRelease);
+
+var tsProject = tsc.createProject('tsconfig.json', { sortOutput: true });
 
 var paths = {
 	tscripts: {
@@ -22,45 +26,42 @@ var paths = {
 	dist: "./build"
 };
 
-gulp.task("default", function () {
+gulp.task("default", ["compile:typescript"], function () {
 
 });
 
-
-// ** Running ** //
-
-
-//gulp.task("buildrun", function (cb) {
-//	runseq("build", "run", cb);
-//});
-
 // ** Watching ** //
-
 
 gulp.task("watch", [], function () {
 	gulp.watch(paths.tscripts.src, ["compile:typescript"]).on("change", reportChange);
 });
 
 // ** Compilation ** //
-gulp.task("build:prod", ["clean"], function (cb) {
+gulp.task("build:rel", ["clean"], function (cb) {
 	//runseq("compile:typescript", "minify", cb);
-	runseq("compile:typescript", cb);
+	runseq("compile:typescript", "compile:typescript:rel", cb);
 });
 
-//gulp.task("build", ["compile:typescript", "compile:sass", "bower", "html", "copy:fonts", "copy:imgs"]);
 
 gulp.task("compile:typescript", function () {
 	var tsResult = gulp
 		.src(paths.tscripts.src)
 		.pipe(sourcemaps.init())
-		.pipe(tsc({
-			module: "amd",
-			target: "ES5",
-			declarationFiles: true,
-			emitError: false,
-			emitDecoratorMetadata: true,
-			experimentalDecorators: true
-		}));
+		.pipe(tsc(tsProject));
+
+	return merge([
+		tsResult.js
+			.pipe(concat(paths.distFileName))
+			.pipe(ngAnnotate())
+			.pipe(sourcemaps.write("."))
+			.pipe(gulp.dest(paths.dist))
+	]);
+});
+
+gulp.task("compile:typescript:rel", function () {
+	var tsResult = gulp
+		.src(paths.tscripts.src)
+		.pipe(tsc(tsProject));
 
 	return merge([
 		tsResult.dts
@@ -69,7 +70,8 @@ gulp.task("compile:typescript", function () {
 		tsResult.js
 			.pipe(concat(paths.distFileName))
 			.pipe(ngAnnotate())
-			.pipe(sourcemaps.write("."))
+			.pipe(uglify())
+			.pipe(rename({ extname: '.min.js' }))
 			.pipe(gulp.dest(paths.dist))
 	]);
 });

@@ -1,11 +1,12 @@
 {
 	"compilerOptions": {
 		"module": "amd",
-		"declaration": false,
+		"declaration": true,
 		"noImplicitAny": false,
 		"removeComments": false,
-		"noLib": true,
-		"emitDecoratorMetadata": true
+		"noLib": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
 	},
 		"filesGlob": [
 		"./**/*.ts",
