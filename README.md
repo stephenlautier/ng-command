@@ -6,8 +6,6 @@
 [Command Pattern][2] implementation for [AngularJS][1].
 
 	bower install ng-command
-
-
  
  ## Summary
  
