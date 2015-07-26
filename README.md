@@ -7,7 +7,7 @@
 
 	bower install ng-command
  
- ## Summary
+ ##Summary
  
 `ng-command` lets you write commands which can only execute once whilst executing and also if `canExecute` is met.
 
@@ -31,6 +31,7 @@ var app = angular.module('commandLab', ['ng-command'])
 			function canExecute() {
 				return !self.isBusy;
 			}
+
 
 ```html
 <button class="btn" ng-disabled="!vm.saveCmd.canExecute" ng-click="vm.saveCmd.execute()">
