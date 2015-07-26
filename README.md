@@ -31,8 +31,8 @@ var app = angular.module('commandLab', ['ng-command'])
 			function canExecute() {
 				return !self.isBusy;
 			}
-
-
 ```
-<button class="btn" ng-disabled="!vm.saveCmd.canExecute" ng-click="vm.saveCmd.execute()">
 
+```html
+<button class="btn" ng-disabled="!vm.saveCmd.canExecute" ng-click="vm.saveCmd.execute()">
+```
