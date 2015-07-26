@@ -1,0 +1,25 @@
+{
+  "name": "ng-command",
+  "version": "0.1.0",
+  "description": "Command Pattern for AngularJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephenlautier/ng-command.git"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "Stephen Lautier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephenlautier/ng-command/issues"
+  },
+  "homepage": "https://github.com/stephenlautier/ng-command",
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "run-sequence": "^1.1.2",
+    "typescript": "^1.5.3"
+  }
+}
