@@ -11,6 +11,7 @@ var ngAnnotate = require("gulp-ng-annotate");
 var uglify = require("gulp-uglify");
 //var minifyCss = require("gulp-minify-css");
 var del = require("del");
+var merge = require("merge2");
 
 var paths = {
 	tscripts: {
@@ -60,17 +61,17 @@ gulp.task("compile:typescript", function () {
 			emitDecoratorMetadata: true,
 			experimentalDecorators: true
 		}));
-		
-	tsResult.dts
-		.pipe(concat(paths.distTypeScriptDefName))
-		.pipe(gulp.dest(paths.dist))
-	
-	return tsResult.js
-		.pipe(concat(paths.distFileName))
-		.pipe(ngAnnotate())
-		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(paths.dist));
 
+	return merge([
+		tsResult.dts
+			.pipe(concat(paths.distTypeScriptDefName))
+			.pipe(gulp.dest(paths.dist)),
+		tsResult.js
+			.pipe(concat(paths.distFileName))
+			.pipe(ngAnnotate())
+			.pipe(sourcemaps.write("."))
+			.pipe(gulp.dest(paths.dist))
+	]);
 });
 
 // ** Clean ** //
