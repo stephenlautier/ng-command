@@ -1,6 +1,6 @@
 {
   "name": "ng-command",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/stephenlautier/ng-command",
   "authors": [
     "stephen.lautier <stephen.lautier@outlook.com>"
@@ -11,7 +11,7 @@
     "commandpattern"
   ],
 	"main":[
-		"build/ng-command.js"
+		"dist/ng-command.js"
 	],
 	"dependencies": {
 		"angular": ">=1.3.2"
@@ -22,6 +22,12 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+		"tsconfig.json",
+		"tsd.json",
+		"dist/ng-command.d.ts",
+		"gulpfile.js",
+		"package.json",
+		"tools"
   ]
 }

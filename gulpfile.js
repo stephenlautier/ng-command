@@ -27,7 +27,7 @@ var paths = {
 	},
 	distFileName: "ng-command.js",
 	distTypeScriptDefName: "ng-command.d.ts",
-	dist: "./build",
+	dist: "./dist",
 	exampleRoot: "./example"
 };
 
@@ -105,7 +105,7 @@ gulp.task("serve-example", ["build:rel"], function (done) {
 				next();
 			}
 		},
-		 files: ["example/*.*", "build/*.*"]
+		 files: ["example/*.*", "dist/*.*"]
 	}, done);
 
 });
