@@ -6,22 +6,22 @@
 		}
 
 		::selection {
-			background-color: #B6C92F;
+			background-color: #868686;
 			color: #fff;
 		}
 
 		::-moz-selection {
-			background-color:#B6C92F;
+			background-color:#868686;
 			color: #fff;
 		}
 
 		::selection {
-			background-color: #B6C92F;
+			background-color: #868686;
 			color: #fff;
 		}
 
 		::-moz-selection {
-			background-color: #B6C92F;
+			background-color: #868686;
 			color: #fff;
 		}
 
@@ -38,13 +38,13 @@
 		}
 
 		body {
-			background: #B8FF80;
+			background: #80FFC7;
 			color: #3C3C3C;
 			font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 			overflow-x: hidden;
 		}
 
-		h1 {			
+		h1 {
 			font-size: 3em;
 			font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
 			font-weight: 700;
